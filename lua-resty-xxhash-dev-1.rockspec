@@ -1,7 +1,7 @@
 package = "lua-resty-xxhash"
 version = "dev-1"
 source = {
-    url = "git://github.com/bungle/lua-resty-xxhash.git"
+    url = git://github.com/hengestone/lua-resty-xxhash.git"
 }
 description = {
     summary = "LuaJIT FFI-bindings to xxHash, an Extremely fast non-cryptographic hash algorithm.",
@@ -16,6 +16,14 @@ dependencies = {
 build = {
     type = "builtin",
     modules = {
-        ["resty.xxhash"] = "lib/resty/xxhash.lua"
+        ["resty.xxhash"] = "lib/resty/xxhash.lua",
+        xxhash = {
+            sources = {
+              "src/xxhash.c"
+            },
+            libraries = {
+              "xxhash"
+            }
+        }
     }
 }
